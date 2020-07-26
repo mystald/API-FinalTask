@@ -56,15 +56,15 @@ def showCurrentStatus():
 
 @app.route('/', methods=['GET'])
 def doGetStuff():
-    text = [request.args.get('text', type = str)]
-    result = doPrediction(text, vect, model)
+    #text = [request.args.get('text', type = str)]
+    #result = doPrediction(text, vect, model)
 
-    chat = {'chats': [
-        {
-            'text': 'Emosi anda saat ini : ' + result[0],
-            'type': 'text'
-        }
-    ]}
+    #chat = {'chats': [
+    #    {
+    #        'text': 'Emosi anda saat ini : ' + result[0],
+    #        'type': 'text'
+    #    }
+    #]}
 
     return "IT WORKS!!1!1!"
 
