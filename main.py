@@ -38,6 +38,12 @@ def showHistory():
     name = request.values.get('name', type=str)
     chats = {'chats': []}
     if name in emotionDB:
+        chats['chats'].append(
+            {
+                'text': "Nama : " + name,
+                'type': 'text'
+            }
+        )
         for emotion in emotionDB[name]:
             chats['chats'].append(
                 {
@@ -59,10 +65,17 @@ def showCurrentStatus():
     name = request.values.get('name', type=str)
     chats = {'chats': []}
     if name in emotionDB:
+        chats['chats'].append(
+            {
+                'text': "Nama : " + name,
+                'type': 'text'
+            }
+        )
+
         emotion = emotionDB[name][-1]
         chats['chats'].append(
             {
-                'text': emotion,
+                'text': 'Emotion saat ini : ', emotion,
                 'type': 'text'
             }
         )
