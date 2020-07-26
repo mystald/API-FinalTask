@@ -33,7 +33,7 @@ def doPredict():
 
     return jsonify(chat)
 
-@app.route('/status', methods=['GET'])
+@app.route('/history', methods=['GET'])
 def showCurrentStatus():
     name = request.values.get('name', type=str)
     chats = {'chats': []}
@@ -45,6 +45,27 @@ def showCurrentStatus():
                     'type': 'text'
                 }
             )
+    else:
+        chats['chats'].append(
+            {
+                'text': "Anda belum memasukkan update apapun",
+                'type': 'text'
+            }
+        )
+    return jsonify(chats)
+
+@app.route('/status', methods=['GET'])
+def showCurrentStatus():
+    name = request.values.get('name', type=str)
+    chats = {'chats': []}
+    if name in emotionDB:
+        emotion = emotionDB[name][-1]
+        chats['chats'].append(
+            {
+                'text': emotion,
+                'type': 'text'
+            }
+        )
     else:
         chats['chats'].append(
             {
