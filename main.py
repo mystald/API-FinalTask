@@ -75,7 +75,7 @@ def showCurrentStatus():
         emotion = emotionDB[name][-1]
         chats['chats'].append(
             {
-                'text': 'Emotion saat ini : ', emotion,
+                'text': 'Emotion saat ini : ' + emotion,
                 'type': 'text'
             }
         )
