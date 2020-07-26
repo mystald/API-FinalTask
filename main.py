@@ -34,7 +34,7 @@ def doPredict():
     return jsonify(chat)
 
 @app.route('/history', methods=['GET'])
-def showCurrentStatus():
+def showHistory():
     name = request.values.get('name', type=str)
     chats = {'chats': []}
     if name in emotionDB:
